@@ -3,7 +3,7 @@
  */
 
 process.on('unhandledRejection', err => {
-    throw err;
+  throw err;
 });
 
 const webpack = require('webpack')
@@ -15,7 +15,7 @@ const compiler = webpack(config)
 
 const devServer = new WebpackDevServer(compiler, webpackDevServerConfig)
 devServer.listen(8888, (err) => {
-    console.log(err)
+  console.log(err)
 })
 
 
