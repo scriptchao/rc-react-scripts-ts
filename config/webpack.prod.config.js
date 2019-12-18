@@ -22,6 +22,7 @@ module.exports = merge(baseWebpackConfig, {
     noEmitOnErrors: true,
   },
   module: {
+    strictExportPresence: true,
     rules: [
       {
         oneOf: [
