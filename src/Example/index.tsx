@@ -6,7 +6,7 @@ import './index.less'
 
 const Example = () => {
   return (
-    <div className="example">编写测试代码</div>
+    <div className="example">Example</div>
   );
 };
 
