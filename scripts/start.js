@@ -1,6 +1,7 @@
 /**
  * Created by tony on 2019-10-24
  */
+process.env.NODE_ENV = 'development'
 
 process.on('unhandledRejection', err => {
   throw err;

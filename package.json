@@ -77,12 +77,9 @@
     "yargs": "^15.0.2"
   },
   "browserslist": [
-    "defaults",
     ">0.2%",
     "not dead",
-    "not ie <= 10",
-    "not op_mini all",
-    "last 3 versions"
+    "not ie <= 8"
   ],
   "jest": {
     "setupFiles": [
