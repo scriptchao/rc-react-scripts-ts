@@ -10,6 +10,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
 const baseWebpackConfig = require('./webpack.base.config')
 
+const jsSourceMap = false // 是否生成js文件的sourceMap
+const cssSourceMap = false // 是否生成css文件的sourceMap
+
 module.exports = merge(baseWebpackConfig, {
   output: {
     path: paths.appBuild,
@@ -18,6 +21,7 @@ module.exports = merge(baseWebpackConfig, {
     publicPath: '/'
   },
   mode: 'production',
+  devtool: jsSourceMap ? 'source-map': false,
   optimization: {
     noEmitOnErrors: true,
   },
@@ -126,8 +130,8 @@ module.exports = merge(baseWebpackConfig, {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[name].[contenthash].css',
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
       allChunks: true,
       ignoreOrder: true
     }),
@@ -140,7 +144,16 @@ module.exports = merge(baseWebpackConfig, {
         // 会使用到autoprefixer进行无关前缀的清理
         // 关闭autoprefixer功能
         // 使用postcss的autoprefixer功能
-        autoprefixer: false
+        autoprefixer: false,
+        map: cssSourceMap
+          ? {
+            // `inline: false` forces the sourcemap to be output into a
+            // separate file
+            inline: false,
+            // `annotation: true` appends the sourceMappingURL to the end of
+            // the css file, helping the browser find the sourcemap
+            annotation: true,
+          } : false,
       },
     }),
     new webpack.ContextReplacementPlugin(
