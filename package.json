@@ -56,8 +56,10 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.13.0",
+    "commitizen": "^4.0.3",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.3.2",
+    "cz-conventional-changelog": "^3.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "6.x",
@@ -101,6 +103,11 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings 0 --ext .js,.jsx,.ts,.tsx"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "browserslist": [
     ">0.2%",
