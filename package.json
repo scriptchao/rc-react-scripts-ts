@@ -114,38 +114,5 @@
     ">0.2%",
     "not dead",
     "not ie <= 8"
-  ],
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/test/setup.ts"
-    ],
-    "testMatch": [
-      "<rootDir>/test/**/*.{spec,test}.{js,jsx,ts,tsx}"
-    ],
-    "collectCoverageFrom": [
-      "<rootDir>/src/Main/**/*.{js,jsx,ts,tsx}",
-      "!<rootDir>/src/Main/**/*.d.ts"
-    ],
-    "testEnvironment": "jsdom",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
-      "^(?!.*\\.(js|jsx|ts|tsx|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/",
-      "^.+\\.(css|less)$"
-    ],
-    "moduleNameMapper": {
-      "^.+\\.(css|less)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx",
-      "ts",
-      "tsx",
-      "node"
-    ]
-  }
+  ]
 }
