@@ -101,8 +101,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings 0 --ext .js,.jsx,.ts,.tsx --fix",
-      "git add"
+      "eslint --max-warnings 0 --ext .js,.jsx,.ts,.tsx --fix"
     ]
   },
   "config": {
