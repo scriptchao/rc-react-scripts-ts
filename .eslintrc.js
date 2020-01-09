@@ -3,6 +3,5 @@ module.exports = {
     "react-app"
   ],
   "rules": {
-    semi: 2
   }
 };
