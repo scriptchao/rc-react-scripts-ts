@@ -9,14 +9,21 @@ process.on('unhandledRejection', err => {
 
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const { choosePort } = require('react-dev-utils/WebpackDevServerUtils')
 const config = require('../config/webpack.dev.config')
 const webpackDevServerConfig = require('../config/devServer.config')
 
 const compiler = webpack(config)
 
-const devServer = new WebpackDevServer(compiler, webpackDevServerConfig)
-devServer.listen(8888, (err) => {
-  console.log(err)
+const DEFAULT_PORT = 8888
+const HOST = '0.0.0.0'
+
+choosePort(HOST, DEFAULT_PORT).then(port => {
+  const devServer = new WebpackDevServer(compiler, webpackDevServerConfig)
+
+  devServer.listen(port, HOST, (err) => {
+    console.log(err)
+  })
 })
 
 
