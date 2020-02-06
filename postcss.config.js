@@ -4,10 +4,10 @@
 const autoprefixer = require('autoprefixer')
 
 module.exports = {
-    plugins: [
-        require('postcss-flexbugs-fixes'),
-        autoprefixer({
-            flexbox: 'no-2009',
-        }),
-    ]
+  plugins: [
+    require('postcss-flexbugs-fixes'),
+    autoprefixer({
+      flexbox: 'no-2009',
+    }),
+  ]
 }

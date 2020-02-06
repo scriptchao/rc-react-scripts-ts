@@ -7,11 +7,11 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-const {argv} = require('yargs')
+const { argv } = require('yargs')
 
 const webpack = require('webpack')
 const rimraf = require('rimraf')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const paths = require('../config/paths')
 const config = require('../config/webpack.prod.config')
 

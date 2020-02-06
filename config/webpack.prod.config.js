@@ -21,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
     publicPath: '/'
   },
   mode: 'production',
-  devtool: jsSourceMap ? 'source-map': false,
+  devtool: jsSourceMap ? 'source-map' : false,
   optimization: {
     noEmitOnErrors: true,
   },
@@ -45,7 +45,7 @@ module.exports = merge(baseWebpackConfig, {
           {
             test: /\.less$/,
             use: [
-              {loader: MiniCssExtractPlugin.loader},
+              { loader: MiniCssExtractPlugin.loader },
               {
                 loader: 'css-loader',
                 options: {
@@ -69,7 +69,7 @@ module.exports = merge(baseWebpackConfig, {
           {
             test: /\.css$/,
             use: [
-              {loader: MiniCssExtractPlugin.loader},
+              { loader: MiniCssExtractPlugin.loader },
               {
                 loader: 'css-loader',
                 options: {
@@ -137,7 +137,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: {
-        discardComments: {removeAll: true},
+        discardComments: { removeAll: true },
         // 避免 cssnano 重新计算 z-index
         safe: true,
         // cssnano 集成了autoprefixer的功能
