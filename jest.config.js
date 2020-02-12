@@ -3,10 +3,10 @@
  */
 module.exports = {
   setupFiles: [
-    "<rootDir>/test/setup.js"
+    "<rootDir>/src/__test__/setup.ts"
   ],
   testMatch: [
-    "<rootDir>/test/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    "<rootDir>/src/__test__/**/*.{spec,test}.{js,jsx,ts,tsx}"
   ],
   collectCoverageFrom: [
     "<rootDir>/src/Main/**/*.{js,jsx,ts,tsx}",

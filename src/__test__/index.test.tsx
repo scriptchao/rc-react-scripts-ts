@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { shallow } from 'enzyme'
-import Component from '../src/Main'
+import Component from '../Main'
 
 test('fist test', async () => {
   const wrapper = shallow(<Component />)
