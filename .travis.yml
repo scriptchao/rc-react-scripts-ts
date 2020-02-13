@@ -8,4 +8,4 @@ cache:
 
 # Build Lifecycle
 install:
-  - yarn
+  - yarn install
