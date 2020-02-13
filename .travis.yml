@@ -9,3 +9,5 @@ cache:
 # Build Lifecycle
 install:
   - yarn install
+
+script:
