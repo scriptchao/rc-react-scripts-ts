@@ -10,4 +10,5 @@ cache:
 install:
   - yarn install
 
-script: true
+script: 
+  - yarn codecov
