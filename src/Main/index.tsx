@@ -7,7 +7,7 @@ import './index.less'
 const Main = () => {
 
   function unUse() {
-    console.log('unUse')
+    console.log('unUse1')
   }
 
   return <div className="main">Main</div>
