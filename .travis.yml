@@ -8,6 +8,7 @@ cache:
 
 # Build Lifecycle
 install:
+  - uname -a
   - yarn install
 
 script:
