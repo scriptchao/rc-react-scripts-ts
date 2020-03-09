@@ -9,7 +9,7 @@ cache:
 # Build Lifecycle
 install:
   - uname -a
-  - npm run install
+  - npm install
 
 script:
   - npm run codecov
