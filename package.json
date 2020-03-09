@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "lib": "rimraf lib && yarn lib:types && yarn lib:js",
+    "lib": "rimraf lib && npm run lib:types && npm run lib:js",
     "lib:js": "babel src/Main --out-dir lib --extensions .ts,.tsx --source-maps inline --copy-files",
     "lib:types": "tsc -p ./tsconfig.declaration.json",
     "analyzer": "node scripts/build.js --analyzer=true",
@@ -18,7 +18,7 @@
     "test": "node scripts/test.js --bail --watch",
     "test-debug": "node --inspect-brk scripts/test.js --runInBand --bail",
     "coverage": "node scripts/test.js --bail --coverage",
-    "codecov": "yarn coverage && codecov",
+    "codecov": "npm run coverage && codecov",
     "lint": "eslint src --max-warnings 0 --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
