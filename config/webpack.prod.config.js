@@ -16,8 +16,8 @@ const cssSourceMap = false // 是否生成css文件的sourceMap
 module.exports = merge(baseWebpackConfig, {
   output: {
     path: paths.appBuild,
-    filename: 'js/[name].[chunkhash:8].js',
-    chunkFilename: 'js/[name].[chunkhash:8].js',
+    filename: 'static/[name].[chunkhash:8].js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].js',
     publicPath: '/'
   },
   mode: 'production',
@@ -130,8 +130,8 @@ module.exports = merge(baseWebpackConfig, {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].css',
       allChunks: true,
       ignoreOrder: true
     }),
