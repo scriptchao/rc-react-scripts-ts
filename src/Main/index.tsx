@@ -4,13 +4,13 @@
 import React from 'react'
 import './index.less'
 
-const Main = () => {
+const Main = (props) => {
 
-  function unUse() {
-    console.log('unUse1')
+  function onClick() {
+    props.onChange && props.onChange()
   }
 
-  return <div className="main">Main</div>
+  return <div className="main" onClick={onClick}>Main</div>
 }
 
 export default Main

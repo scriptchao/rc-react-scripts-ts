@@ -2,18 +2,20 @@
  * Created by tony on 2020/1/9
  */
 module.exports = {
-  setupFiles: [
-    "<rootDir>/src/__test__/setup.ts"
+  roots: [
+    "<rootDir>/src"
+  ],
+  setupFilesAfterEnv: [
+    "<rootDir>/src/setupTests.ts"
   ],
   testMatch: [
-    "<rootDir>/src/__test__/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    "<rootDir>/src/__tests__/**/*.{spec,test}.{js,jsx,ts,tsx}"
   ],
   collectCoverageFrom: [
     "<rootDir>/src/Main/**/*.{js,jsx,ts,tsx}",
     "!<rootDir>/src/Main/**/*.d.ts"
   ],
-  testEnvironment: "jsdom",
-  testURL: "http://localhost",
+  testEnvironment: "jest-environment-jsdom-fourteen",
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
     "^(?!.*\\.(js|jsx|ts|tsx|json)$)": "<rootDir>/config/jest/fileTransform.js"
