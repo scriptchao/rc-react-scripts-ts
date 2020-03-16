@@ -16,7 +16,7 @@ const cssSourceMap = false // 是否生成css文件的sourceMap
 module.exports = merge(baseWebpackConfig, {
   output: {
     path: paths.appBuild,
-    filename: 'static/[name].[chunkhash:8].js',
+    filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].js',
     publicPath: '/'
   },
