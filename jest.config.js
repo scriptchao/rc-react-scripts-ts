@@ -5,6 +5,8 @@ module.exports = {
   roots: [
     "<rootDir>/src"
   ],
+  bail: true,
+  verbose: true,
   setupFilesAfterEnv: [
     "<rootDir>/src/setupTests.ts"
   ],
