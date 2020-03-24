@@ -7,6 +7,13 @@ module.exports = {
   ],
   bail: true,
   verbose: true,
+  coverageReporters: [
+    "json",
+    "lcov",
+    "text",
+    "clover",
+    "json-summary"
+  ],
   setupFilesAfterEnv: [
     "<rootDir>/src/setupTests.ts"
   ],
