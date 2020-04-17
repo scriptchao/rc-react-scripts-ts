@@ -14,7 +14,12 @@ module.exports = {
           }
         }
       ] :
-      ["@babel/preset-env"],
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": 3,
+        }],
     ["@babel/preset-react"],
     ["@babel/preset-typescript"]
   ],
@@ -23,9 +28,7 @@ module.exports = {
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     isEnvTest ? false :
-      ["@babel/plugin-transform-runtime", {
-        "corejs": 3,
-      }],
+      ["@babel/plugin-transform-runtime"],
     ["@babel/plugin-syntax-dynamic-import"],
     ["@babel/plugin-proposal-optional-chaining"],
     ["import",
