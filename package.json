@@ -1,6 +1,6 @@
 {
-  "name": "quick-ts-start",
-  "version": "1.0.0",
+  "name": "rc-react-scripts-ts",
+  "version": "2.0.0",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -21,16 +21,12 @@
     "codecov": "npm run coverage && codecov",
     "lint": "eslint src --max-warnings 0 --ext .js,.jsx,.ts,.tsx"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.9.2",
+  "devDependencies": {
     "antd": "^3.26.3",
-    "core-js": "^3.6.5",
     "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
-  },
-  "devDependencies": {
+    "react-router-dom": "^5.1.2",
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
