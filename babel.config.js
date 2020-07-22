@@ -2,7 +2,7 @@
  * @Author: 托尼
  * @Date: 2019-11-21 14:23:18
  * @LastEditors: 托尼
- * @LastEditTime: 2020-07-21 19:57:25
+ * @LastEditTime: 2020-07-22 16:06:19
  */
 const isEnvTest = process.env.NODE_ENV === 'test'
 
@@ -17,7 +17,13 @@ module.exports = {
           }
         }
       ] :
-      ["@babel/preset-env"],
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": 3,
+        }
+      ],
     ["@babel/preset-react"],
     ["@babel/preset-typescript"]
   ],
