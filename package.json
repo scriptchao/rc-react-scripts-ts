@@ -1,6 +1,6 @@
 {
   "name": "rc-react-scripts-ts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -10,9 +10,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "dist": "npm run lib && npm run es",
     "lib": "rimraf lib && npm run lib:types && npm run lib:js",
-    "lib:js": "babel src/Main --out-dir lib --extensions .ts,.tsx --source-maps inline --copy-files",
+    "lib:js": "babel src/Main --out-dir lib --extensions .ts,.tsx --config-file ./babel.config.js --source-maps inline --copy-files",
     "lib:types": "tsc -p ./tsconfig.declaration.json",
+    "es": "rimraf es && npm run es:types && npm run es:js",
+    "es:js": "babel src/Main --out-dir es --extensions .ts,.tsx --config-file ./babel.es.config.js --source-maps inline --copy-files",
+    "es:types": "tsc -p ./tsconfig.declaration.json --declarationDir es",
     "analyzer": "node scripts/build.js --analyzer=true",
     "serve": "serve -s build",
     "test": "node scripts/test.js --watch",
