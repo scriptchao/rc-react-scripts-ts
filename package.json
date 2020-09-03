@@ -1,11 +1,14 @@
 {
   "name": "rc-react-scripts-ts",
-  "version": "2.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "typings": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "es",
+    "*.d.ts"
   ],
   "scripts": {
     "start": "node scripts/start.js",
