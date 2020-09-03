@@ -2,7 +2,10 @@
  * Created by tony on 2019-12-16
  */
 import React from 'react'
+import { a } from '@/Main/test'
 import './index.less'
+
+console.log(a)
 
 const Main = (props) => {
 

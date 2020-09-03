@@ -39,6 +39,14 @@ module.exports = {
         "libraryName": "antd",
         "style": true
       }
+    ],
+    [
+      "module-resolver", {
+        "root": ["./"],
+        "alias": {
+          "@": "./src"
+        }
+      }
     ]
   ].filter(item => !!item)
 };
