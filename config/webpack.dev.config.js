@@ -4,6 +4,7 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const baseWebpackConfig = require('./webpack.base.config')
 const paths = require('./paths')
 const { getPublicPath } = require('./utils')
@@ -37,6 +38,7 @@ module.exports = merge(baseWebpackConfig, {
           },
           {
             test: /\.less$/,
+            exclude: /\.module\.less$/,
             use: [
               'style-loader',
               {
@@ -60,13 +62,64 @@ module.exports = merge(baseWebpackConfig, {
             ]
           },
           {
+            test: /\.module\.less$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 2,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                },
+              },
+              {
+                loader: 'less-loader',
+                options: {
+                  javascriptEnabled: true
+                }
+              }
+            ]
+          },
+          {
             test: /\.css$/,
+            exclude: /\.module\.css$/,
             use: [
               'style-loader',
               {
                 loader: 'css-loader',
                 options: {
                   importLoaders: 1,
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  // Necessary for external CSS imports to work
+                  // https://github.com/facebookincubator/create-react-app/issues/2677
+                  ident: 'postcss',
+                },
+              },
+            ],
+          },
+          {
+            test: /\.module\.css$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
               },
               {

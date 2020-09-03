@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const paths = require('./paths')
 const { getPublicPath } = require('./utils')
 const baseWebpackConfig = require('./webpack.base.config')
@@ -47,6 +48,7 @@ module.exports = merge(baseWebpackConfig, {
           },
           {
             test: /\.less$/,
+            exclude: /\.module\.less$/,
             use: [
               { loader: MiniCssExtractPlugin.loader },
               {
@@ -70,13 +72,62 @@ module.exports = merge(baseWebpackConfig, {
             ]
           },
           {
+            test: /\.module\.less$/,
+            use: [
+              { loader: MiniCssExtractPlugin.loader },
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 2,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                },
+              },
+              {
+                loader: 'less-loader',
+                options: {
+                  javascriptEnabled: true
+                }
+              }
+            ]
+          },
+          {
             test: /\.css$/,
+            exclude: /\.module\.css$/,
             use: [
               { loader: MiniCssExtractPlugin.loader },
               {
                 loader: 'css-loader',
                 options: {
                   importLoaders: 1,
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                },
+              },
+            ]
+          },
+          {
+            test: /\.module\.css$/,
+            use: [
+              { loader: MiniCssExtractPlugin.loader },
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
               },
               {
