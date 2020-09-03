@@ -6,12 +6,15 @@ const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 const paths = require('./paths')
+const { getPublicPath } = require('./utils')
+
+const PUBLIC_PATH = getPublicPath(process.env.PUBLIC_URL)
 
 module.exports = merge(baseWebpackConfig, {
   output: {
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: '/'
+    publicPath: PUBLIC_PATH
   },
   devtool: 'cheap-module-eval-source-map',
   mode: 'development',

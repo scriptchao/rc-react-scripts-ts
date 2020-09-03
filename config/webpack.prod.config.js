@@ -8,7 +8,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths')
+const { getPublicPath } = require('./utils')
 const baseWebpackConfig = require('./webpack.base.config')
+
+const PUBLIC_PATH = getPublicPath(process.env.PUBLIC_URL)
 
 const jsSourceMap = false // 是否生成js文件的sourceMap
 const cssSourceMap = false // 是否生成css文件的sourceMap
@@ -18,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
     path: paths.appBuild,
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].js',
-    publicPath: '/'
+    publicPath: PUBLIC_PATH
   },
   mode: 'production',
   devtool: jsSourceMap ? 'source-map' : false,
